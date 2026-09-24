@@ -31,8 +31,7 @@ dan menjawab apa. Lalu catat hasil evaluasinya (Lembar I.6):
 ## Pertemuan 4 — Halaman profil saya
 
 - Arah visual: tenang dan akademik
-- Warna utama: biru (`#1D3A8C`), dipilih karena memberi kesan rapi, dapat
-  dipercaya, dan enak dibaca lama — cocok dengan halaman profil akademik
+- Warna utama: biru (`#1D3A8C`), dipilih karena memberi kesan rapi, dapat dipercaya, dan enak dibaca lama.
 - Berkas gaya: `tokens.css`, `base.css`, `layout.css`, `komponen.css`, `tema.css`
 
 ### Token yang saya tetapkan
