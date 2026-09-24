@@ -1,0 +1,52 @@
+/* layout.css — Lembar F
+   Susunan besar halaman: header, navbar, urutan bagian, footer. */
+
+   header.kepala {
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--section-gap);
+  }
+  
+  header.kepala .tagline {
+    font-style: italic;
+    margin-top: var(--space-1);
+  }
+  
+  nav[aria-label="Navigasi utama"] ul {
+    display: flex;
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-3);
+    flex-wrap: wrap; /* turun baris di layar sempit, jangan meluber */
+  }
+  
+  nav a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap); /* jarak antar bagian, tanpa margin manual */
+    padding-block: var(--space-6);
+  }
+  
+  main section {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-1);
+    padding: var(--card-pad);
+  }
+  
+  footer.kaki {
+    margin-top: var(--space-6);
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-fg);
+    font-size: var(--text-sm);
+  }
