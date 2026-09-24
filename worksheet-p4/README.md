@@ -72,7 +72,7 @@ Saya menggunakan bantuan AI untuk memperbaiki kode CSS dan menyelesaikan
 beberapa kendala saat menghubungkan proyek ke GitHub lewat terminal. 
 
 - W3C Nu Html Checker: 0 error
-- WCAG — kontras AA tema terang: lolos (teks utama 17.06:1, tombol lolos AA)
+- WCAG — kontras AA tema terang: lolos (teks utama 17.5:1, tombol lolos AA)
 - WCAG — kontras AA tema gelap: lolos
 - WCAG — seluruh bagian baru dapat dicapai dengan Tab: ya, garis fokus terlihat jelas
 - WCAG — tetap dipahami tanpa bantuan warna: ya, halaman tetap jelas dan bisa dipakai

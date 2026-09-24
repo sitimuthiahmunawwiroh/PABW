@@ -7,7 +7,16 @@
     margin-bottom: var(--section-gap);
   }
   
-  header.kepala .tagline {
+  .header-baris {
+    display: flex;
+    align-items: center; /* sumbu silang: rata tengah */
+    justify-content: space-between; /* sumbu utama: judul kiri, menu kanan */
+    gap: var(--space-4);
+    flex-wrap: wrap; /* turun baris di layar sempit, jangan meluber */
+    margin-top: var(--space-3);
+  }
+  
+  .judul-kepala .tagline {
     font-style: italic;
     margin-top: var(--space-1);
   }
