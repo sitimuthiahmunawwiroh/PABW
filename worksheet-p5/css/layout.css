@@ -1,0 +1,104 @@
+/* layout.css — Lembar B (Pertemuan 5)
+   Kerangka halaman = GRID (dua arah). Baris di dalamnya = FLEX (satu arah).
+   Jarak antar elemen memakai gap, bukan tempelan pada anak. */
+
+/* ---------- 1. Kerangka halaman: tiga baris ---------- */
+/* body memegang tiga anak: header, main, footer.
+   Tautan .lewati memakai position: absolute, jadi tidak ikut jadi petak. */
+   body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* kepala | isi mengisi sisa | kaki */
+    gap: var(--section-gap);
+    min-height: 100dvh; /* dvh: kaki tetap menempel saat bilah alamat ponsel bergerak */
+  }
+  
+  /* ---------- 2. Kepala halaman ---------- */
+  header.kepala {
+    display: flex; /* susun toggle tema dan baris judul ke bawah */
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  /* Navbar: FLEX satu arah (baris) */
+  .header-baris {
+    display: flex;
+    align-items: center;             /* sumbu silang: rata tengah */
+    justify-content: space-between;  /* sumbu utama: judul kiri, menu kanan */
+    gap: var(--space-4);
+    flex-wrap: wrap;                 /* turun baris di layar sempit, jangan meluber */
+  }
+  
+  .judul-kepala {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0; /* judul panjang membungkus, tidak mendorong menu */
+  }
+  .judul-kepala .tagline { font-style: italic; }
+  
+  nav[aria-label="Navigasi utama"] ul {
+    display: flex;
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  
+  /* ---------- 3. Isi halaman ---------- */
+  /* Ponsel: satu kolom, bagian tersusun sesuai urutan HTML. */
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr); /* minmax(0, ...) mencegah isi panjang melebarkan kolom */
+    align-content: start;
+    gap: var(--section-gap);
+    padding-block: var(--space-6);
+  }
+  
+  main section {
+    display: flex; /* isi tiap kartu: satu arah (kolom), jarak lewat gap */
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0; /* boleh menyusut di bawah lebar isinya */
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-1);
+    padding: var(--card-pad);
+  }
+  
+  /* Layar lebar: isi dua kolom, sidebar tetap + konten lentur.
+     Satu-satunya media query di berkas ini. Tanpanya, kolom 16rem + celah
+     menyisakan sekitar 48 px untuk konten pada lebar 360 px (meluber). */
+  @media (min-width: 48rem) {
+    main {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      grid-template-areas:
+        "sisi tentang"
+        "sisi karya"
+        "sisi kontak"
+        "sisi tanya";
+    }
+    #keterampilan { grid-area: sisi; align-self: start; } /* area bernama */
+    #tentang      { grid-area: tentang; }
+    #karya        { grid-area: karya; }
+    #kontak       { grid-area: kontak; }
+    #tanya-jawab  { grid-area: tanya; }
+    #kutipan      { grid-column: span 2; } /* span: menempati dua jalur, satu baris implisit di bawah */
+  }
+  
+  /* ---------- 4. Kaki halaman ---------- */
+  footer.kaki {
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-fg);
+    font-size: var(--text-sm);
+  }
