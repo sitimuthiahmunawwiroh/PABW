@@ -1,0 +1,148 @@
+/* komponen.css — Lembar G
+   Tampilan tiap komponen: tabel, foto, kartu karya, form, dan
+   tiga struktur tambahan (tanya jawab, keterampilan, kutipan). */
+
+/* Tabel kegiatan */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--space-3);
+  }
+  caption {
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+  th, td {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  /* Foto profil */
+  figure.foto { max-width: 16rem; }
+  figure.foto img {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+  figure.foto figcaption {
+    font-size: var(--text-sm);
+    margin-top: var(--space-2);
+  }
+  
+  /* Daftar karya sebagai kartu yang membungkus sendiri */
+  #karya ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    list-style: none;
+    padding: 0;
+  }
+  #karya li {
+    flex: 1 1 14rem; /* tumbuh, menyusut, lebar dasar 14rem */
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+  }
+  
+  /* Struktur tambahan 1 — Tanya jawab */
+  details {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    margin-top: var(--space-3);
+  }
+  details:first-of-type { margin-top: 0; }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  details p { margin-top: var(--space-2); }
+  
+  /* Struktur tambahan 2 — Keterampilan */
+  dl.keterampilan dt {
+    font-weight: 700;
+    margin-top: var(--space-3);
+  }
+  dl.keterampilan dt:first-child { margin-top: 0; }
+  dl.keterampilan dd {
+    margin-left: var(--space-4);
+    margin-top: var(--space-1);
+  }
+  
+  /* Struktur tambahan 3 — Kutipan */
+  figure.kutipan {
+    border-left: 4px solid var(--color-primary);
+    padding-left: var(--space-4);
+  }
+  figure.kutipan blockquote p {
+    font-size: var(--text-xl);
+    font-style: italic;
+  }
+  figure.kutipan figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+  }
+  
+  /* Form */
+  form p {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  form p:first-of-type { margin-top: 0; }
+  
+  label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+  
+  input, textarea {
+    font: inherit; /* kolom isian ikut ukuran huruf halaman */
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    color: var(--color-fg);
+  }
+  
+  #nim-bantuan {
+    font-size: var(--text-sm);
+    color: var(--color-fg);
+  }
+  
+  fieldset {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+  }
+  legend {
+    font-weight: 600;
+    padding-inline: var(--space-2);
+  }
+  
+  button {
+    font: inherit;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    color: var(--color-surface);
+    cursor: pointer;
+    margin-top: var(--space-3);
+  }
+  button:hover { opacity: .9; }
+  
+  /* Keadaan fokus — wajib terlihat untuk pengguna papan ketik */
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+  
+  /* Isian tidak sah — hanya menyala SETELAH pengguna mengisi, bukan sejak awal */
+  input:user-invalid, textarea:user-invalid {
+    border-color: var(--color-danger);
+    border-width: 2px;
+  }
