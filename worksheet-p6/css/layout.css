@@ -1,0 +1,89 @@
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    gap: var(--section-gap);
+    min-height: 100dvh; 
+  }
+  
+  header.kepala {
+    display: flex; 
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .header-baris {
+    display: flex;
+    align-items: center;             
+    justify-content: space-between;  
+    gap: var(--space-4);
+    flex-wrap: wrap;                
+  }
+  
+  .judul-kepala {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0; /* judul panjang membungkus, tidak mendorong menu */
+  }
+  .judul-kepala .tagline { font-style: italic; }
+  
+  nav[aria-label="Navigasi utama"] ul {
+    display: flex;
+    gap: var(--space-4);
+    list-style: none;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover { text-decoration: underline; }
+  
+  main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr); 
+    align-content: start;
+    gap: var(--section-gap);
+    padding-block: var(--space-6);
+  }
+  
+  main section {
+    display: flex; 
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0; 
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-1);
+    padding: var(--card-pad);
+  }
+  
+     @media (min-width: 60rem) {
+      main {
+        grid-template-columns: 16rem minmax(0, 1fr);
+        grid-template-areas:
+          "sisi tentang"
+          "sisi karya"
+          "sisi kontak"
+          "sisi tanya";
+      }
+      #keterampilan { grid-area: sisi; align-self: start; }
+      #tentang      { grid-area: tentang; }
+      #karya        { grid-area: karya; }
+      #kontak       { grid-area: kontak; }
+      #tanya-jawab  { grid-area: tanya; }
+      #kutipan      { grid-column: span 2; }
+    }
+
+  footer.kaki {
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-fg);
+    font-size: var(--text-sm);
+  }
