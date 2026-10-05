@@ -13,3 +13,12 @@ const profil = {
   console.log(typeof jumlahProyek);  
   
   console.log(profil.alamat?.kota ?? "belum diisi");
+  
+function buatPerkenalan({ nama, peran }) {
+    return `${nama} — ${peran}`;
+  }
+  
+  const formatKeahlian = (daftar) => daftar.join(" · ");
+  
+  console.log(buatPerkenalan(profil));
+  console.log(formatKeahlian(profil.keahlian));
