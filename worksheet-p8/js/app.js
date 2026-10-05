@@ -3,7 +3,7 @@ const profil = {
     peran: "Mahasiswa Informatika yang sedang belajar membangun web",
     keahlian: ["HTML semantik", "CSS", "Pengembangan aplikasi"],
   };
-
+  
   const jumlahProyek = 3;
   
   const kalimat = `Nama saya ${profil.nama}, dan saya belajar ${profil.keahlian.length} hal.`;
@@ -13,8 +13,8 @@ const profil = {
   console.log(typeof jumlahProyek);  
   
   console.log(profil.alamat?.kota ?? "belum diisi");
-  
-function buatPerkenalan({ nama, peran }) {
+
+  function buatPerkenalan({ nama, peran }) {
     return `${nama} — ${peran}`;
   }
   
@@ -22,8 +22,8 @@ function buatPerkenalan({ nama, peran }) {
   
   console.log(buatPerkenalan(profil));
   console.log(formatKeahlian(profil.keahlian));
-
-const daftarProyek = [
+  
+  const daftarProyek = [
     { judul: "Halaman Kelas Terbuka Kampus", tahun: 2026, selesai: true },
     { judul: "Aplikasi Sortify", tahun: 2024, selesai: true },
     { judul: "Posture Care", tahun: 2025, selesai: true },
@@ -40,7 +40,7 @@ const daftarProyek = [
   
   const daftarJudul = daftarProyek.map((proyek) => proyek.judul);
   console.log(daftarJudul);
-  
+
   const urutTahun = [...daftarProyek].sort((a, b) => a.tahun - b.tahun);
   console.table(urutTahun);
   console.table(daftarProyek); 
