@@ -44,3 +44,4 @@ const profil = {
   const urutTahun = [...daftarProyek].sort((a, b) => a.tahun - b.tahun);
   console.table(urutTahun);
   console.table(daftarProyek); 
+

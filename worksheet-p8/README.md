@@ -1,70 +1,3 @@
-# Praktikum P03 Kelas Terbuka Kampus
-
-Starter yang dipakai untuk praktikum ini adalah `index.html`.
-
-## Anggota tim dan pembagian tugas
-
-- Nama dan NIM anggota 1: SITI MUTHIAH MUNAWWIROH SIREGAR 24523182
-- Nama dan NIM anggota 2: CALISTA PUTRI DEWANI 25523217
-- Pembagian tugas anggota 1:
-- Pembagian tugas anggota 2:
-
-## Berkas yang dikumpulkan
-
-- Nama folder dan berkas ZIP: `P03_<NIM1>_<NIM2>`
-- Alamat lokal saat halaman diuji (misalnya `http://127.0.0.1:5500/index.html`):
-
-## Validasi W3C
-
-| Kondisi | Jumlah error | Catatan |
-| --- | ---: | --- |
-| Sebelum perbaikan |5 error | Encoding belum dideklarasikan, 3 gambar belum memiliki atribut alt, dan struktur heading tidak berurutan. |
-| Setelah perbaikan | 0 error | Tidak ada error  pada Nu Html Checker. |
-
-## Audit awal
-
-| Alat | Hasil sebelum perbaikan | Temuan utama |
-| --- | --- | --- |
-| axe DevTools | 4 issues | 1 masalah `<html>` tidak memiliki atribut `lang` dan 3 masalah gambar tidak memiliki alternative text. |
-| Lighthouse Accessibility | Skor: | 71 |
-
-## Tiga temuan audit yang diperbaiki
-
-| No. | Sumber temuan | Kondisi awal dan dampak | Perubahan HTML | Hasil verifikasi ulang |
-| ---: | --- | --- | --- | --- |
-| 1 | axe DevTools | Elemen <html> belum memiliki atribut lang. Hal ini dapat menyulitkan teknologi bantu dalam menentukan bahasa halaman. | Menambahkan lang="id" pada elemen <html>. | axe DevTools: 0 issues. |
-| 2 | axe DevTools | Tiga elemen gambar belum memiliki atribut alt, sehingga gambar tidak memiliki alternatif teks. | Menambahkan alt yang sesuai pada gambar informatif dan alt="" pada gambar dekoratif. | axe DevTools: 0 issues. |
-| 3 | W3C Validator | Struktur heading pada kondisi awal belum berurutan. | Menata heading menjadi satu <h1> dan <h2> untuk setiap bagian utama sesuai struktur | W3C Nu Html Checker: 0 error dan 0 warning. |
-
-## Uji form
-
-| Skenario | Hasil yang diamati |
-| --- | --- |
-| Submit kosong | Browser menampilkan pesan "Please fill out this field." |
-| Email tidak valid | Browser menampilkan pesan "Please enter a part following '@'. 'mutia@' is incomplete." |
-| NIM bukan 8 digit | Browser menampilkan pesan "Please match the requested format." |
-| Klik teks label | Klik teks label memindahkan fokus ke input yang sesuai karena atribut `for` pada label terhubung dengan `id` input. |
-
-## Uji keyboard only
-
-Jelaskan urutan fokus saat menggunakan Tab dan Shift+Tab serta hasil aktivasi kontrol dengan Enter atau Space.
-| Dengan menekan `Tab`, fokus berpindah ke elemen interaktif pada halaman secara berurutan.`Shift + Tab` digunakan untuk berpindah kembali ke elemen interaktif sebelumnya.
-Skip link `Lewati ke konten utama`dapat dicapai menggunakan keyboard. Setelah diaktifkan dengan `Space`. Tombol `Enter` dapat digunakan untuk berpindah ke `Agenda Daftar Cerita Kelas`. |
-
-## Audit Lighthouse
-
-- Skor Accessibility awal: 71
-- Skor Accessibility terakhir: 100
-- Tanggal audit: 21 September 2026
-- Tangkapan layar skor Lighthouse: disimpan di folder bukti/
-
-Simpan tangkapan layar di folder `bukti/` dan tempel di bawah bagian ini, misalnya `![Skor Lighthouse akhir](bukti/lighthouse-akhir.png)`.
-
-## Catatan evaluasi WCAG kontras
-
-Tuliskan alat yang digunakan dan hasil pemeriksaan kontras sebagai bukti pemahaman WCAG. Tidak ada perubahan warna atau CSS yang dikerjakan pada praktikum ini.
-|Pemeriksaan kontras: Pemeriksaan dilakukan menggunakan DevTools dan axe DevTools. Tidak ditemukan masalah aksesibilitas pada hasil audit akhir axe DevTools. Praktikum tidak melakukan perubahan warna atau CSS.|
-
 ## Isi paket
 
 - `kerangka-profil.html` — salin menjadi `profil.html` ke folder `worksheet-p4/`
@@ -158,3 +91,53 @@ Folder `worksheet-p4/` di dalam repositori GitHub Anda sendiri, berisi
 sebelum **pukul 23.59 hari yang sama**. Tidak ada perpanjangan.
 
 
+## Pertemuan 5 - Kerangka Halaman
+
++------------------------------------------------+
+| KEPALA: judul + tagline | menu           (auto) |   <- flex
++---------------+--------------------------------+
+| SIDEBAR       | Tentang                        |
+| Keterampilan  | Karya (galeri auto-fit)        |
+| 16rem         | Kontak                         |   <- grid 16rem 1fr
+|               | Tanya jawab              (1fr) |
++---------------+--------------------------------+
+| Yang saya pegang (span 2 kolom)                |
++------------------------------------------------+
+| KAKI HALAMAN                           (auto)  |
++------------------------------------------------+
+
+| Bagian | Nilai |
+|Baris halaman | `auto 1fr auto`, tinggi minimum `1000dvh` |
+|Kolom isi | `16rem minmax(0, 1fr)` (layar >= 48rem), satu kolom dibawahnya |
+| Galeri | `repeat(auti-fit, minmax(min(16rem, 100%), 1fr)) |
+
+## Pilihan alat
+
+| Bagian | Alat | Alasan |
+| Kepala halaman | flex | judul dan menu berderet satu arah |
+|Isi dua kolom | grid | side bar dan konten butuh kolom, dua arah |
+|Galeri karya | grid | kartu sejajar baris kolom, jumlag kolom otomatis | 
+| Isi setiap bagian/kartu | flex/grid kolom | susunan satu arah, jarak lewat `gap` |
+
+## Penempatan
+
+| Blok | Cara | Kode |
+| Keterampilan | area bernama | `grid-area: sisi` |
+| Yang saya pegang | span | `grid=column: span 2` |
+
+## Catatan 
+
+- Satu media query dikapai untuk kerangka (`min-width: 48rem`), supaya side bar 16rem tidak menekan konten di layar 360 px. Galeri sendiri tanpa media query.
+- Diuji di 320, 360, 768, 1280 px: tidak ada luberan horizontal. 
+
+## Pertemuan 8 — Deklarasi AI
+
+## Dibantu AI
+- Penjelasan konsep (const/let, fungsi murni, map/filter/find) dan contoh kode awal untuk app.js
+- mencari kesalahan 
+
+## Saya kerjakan sendiri
+- Halaman profil.html dan seluruh CSS dari Pertemuan 6
+- Memperbaiki kesalahan yang ditemukan.
+- Menjalankan kode, mengamati hasil di Console, dan mencatat galat di tabel 
+- Pengambilan tiga tangkapan layar, penilaian mandiri, dan commit ke GitHub
