@@ -1,4 +1,5 @@
 import { daftarProyek } from "./app.js";
+
 const wadah = document.querySelector("#daftar");
 const barisFilter = document.querySelector("#filter");
 const kosong = document.querySelector("#pesan-kosong");
@@ -94,7 +95,7 @@ function tampilkanGalat(kolom, pesan) {
 const semuaSah = () => kolomForm.every((kolom) => pesanGalat(kolom) === "");
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  event.preventDefault(); 
 
   let pertamaBermasalah = null;
   kolomForm.forEach((kolom) => {
@@ -106,6 +107,7 @@ form.addEventListener("submit", (event) => {
   if (pertamaBermasalah) {
     status.textContent = "";
     pertamaBermasalah.focus(); 
+    return; 
   }
 
   status.textContent = "Formulir sudah benar. Pengiriman ke server belum dibuat.";
