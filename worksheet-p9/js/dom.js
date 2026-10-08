@@ -32,7 +32,7 @@ function render(daftar) {
   }
   kosong.hidden = true;
 
-  const bungkus = document.createDocumentFragment(); 
+  const bungkus = document.createDocumentFragment();
   daftar.forEach((proyek) => bungkus.append(buatKartu(proyek)));
   wadah.append(bungkus); 
 }
