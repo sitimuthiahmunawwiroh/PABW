@@ -56,3 +56,67 @@ barisFilter.addEventListener("click", (event) => {
 });
 
 render(daftarProyek);
+
+const tombolKirim = form.querySelector("button[type='submit']");
+const status = document.querySelector("#status-form");
+const kolomForm = [kolomNama, kolomEmail, kolomNim, kolomPesan];
+
+const aturan = {
+  nama: (isi) =>
+    isi === "" ? "Nama belum diisi. Ketik nama lengkap Anda." : "",
+  email: (isi) => {
+    if (isi === "") return "Email belum diisi. Ketik alamat email Anda.";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(isi))
+      return "Format email belum benar. Pakai bentuk nama@contoh.com.";
+    return "";
+  },
+  nim: (isi) =>
+    /^[0-9]{8}$/.test(isi) ? "" : "NIM harus delapan digit angka, contoh 24523182.",
+  pesan: (isi) =>
+    isi === "" ? "Pesan belum diisi. Tulis pesan Anda." : "",
+};
+
+function pesanGalat(kolom) {
+  return aturan[kolom.id](kolom.value.trim());
+}
+
+function tampilkanGalat(kolom, pesan) {
+  const elGalat = document.querySelector(`#${kolom.id}-galat`);
+  elGalat.textContent = pesan;
+  elGalat.hidden = pesan === "";
+  if (pesan) {
+    kolom.setAttribute("aria-invalid", "true");
+  } else {
+    kolom.removeAttribute("aria-invalid");
+  }
+}
+
+const semuaSah = () => kolomForm.every((kolom) => pesanGalat(kolom) === "");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  let pertamaBermasalah = null;
+  kolomForm.forEach((kolom) => {
+    const pesan = pesanGalat(kolom);
+    tampilkanGalat(kolom, pesan);
+    if (pesan && !pertamaBermasalah) pertamaBermasalah = kolom;
+  });
+
+  if (pertamaBermasalah) {
+    status.textContent = "";
+    pertamaBermasalah.focus(); 
+  }
+
+  status.textContent = "Formulir sudah benar. Pengiriman ke server belum dibuat.";
+  kolomForm.forEach((kolom) => tampilkanGalat(kolom, ""));
+  form.reset();
+  tombolKirim.disabled = false;
+});
+
+form.addEventListener("input", (event) => {
+  const kolom = event.target;
+  if (!kolomForm.includes(kolom)) return; 
+  tampilkanGalat(kolom, pesanGalat(kolom));
+  tombolKirim.disabled = !semuaSah();
+});

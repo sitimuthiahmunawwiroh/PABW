@@ -155,3 +155,12 @@ input:user-invalid, textarea:user-invalid {
   outline-offset: 2px;
 }
 
+.galat {
+  font-size: var(--text-sm);
+  color: var(--color-danger);
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
