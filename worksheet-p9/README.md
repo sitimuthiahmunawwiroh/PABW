@@ -141,3 +141,15 @@ sebelum **pukul 23.59 hari yang sama**. Tidak ada perpanjangan.
 - Memperbaiki kesalahan yang ditemukan.
 - Menjalankan kode, mengamati hasil di Console, dan mencatat galat di tabel 
 - Pengambilan tiga tangkapan layar, penilaian mandiri, dan commit ke GitHub
+
+
+
+## Pertemuan 9 — Pengungkapan AI
+Bagian yang dibantu AI:
+- Memperbaiki kode `dom.js` yang tidak lengkap
+- Penjelasan pesan galat di Console
+
+Bagian yang saya kerjakan sendiri:
+- Mengisi worksheet
+- Membuat kode `app.js` dan `dom.js`
+- Menambah beberapa code di `profil.html` dan `komponen.css`
