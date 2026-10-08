@@ -11,12 +11,12 @@ th, td {
   text-align: left;
   padding: var(--space-2) var(--space-3);
   border-bottom: 1px solid var(--color-border);
-  overflow-wrap: anywhere; 
+  overflow-wrap: anywhere;
 }
 
 figure.foto {
   display: grid;
-  grid-template-columns: minmax(0, 1fr); 
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-2);
   max-width: 16rem;
 }
@@ -38,8 +38,8 @@ figure.foto figcaption { font-size: var(--text-sm); }
   display: grid;
   align-content: start;
   min-height: 8rem;
-  min-width: 0;             
-  overflow-wrap: anywhere;  
+  min-width: 0;
+  overflow-wrap: anywhere;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -58,7 +58,6 @@ summary {
 }
 details p { padding-top: var(--space-2); }
 
-/* Keterampilan */
 dl.keterampilan {
   display: grid;
   gap: var(--space-1);
@@ -68,9 +67,8 @@ dl.keterampilan dd {
   padding-inline-start: var(--space-4);
   overflow-wrap: anywhere;
 }
-dl.keterampilan dd:not(:last-of-type) { padding-bottom: var(--space-2); } /* pemisah antar pasangan */
+dl.keterampilan dd:not(:last-of-type) { padding-bottom: var(--space-2); } 
 
-/* Kutipan */
 figure.kutipan {
   display: grid;
   gap: var(--space-2);
@@ -83,12 +81,11 @@ figure.kutipan blockquote p {
 }
 figure.kutipan figcaption { font-size: var(--text-sm); }
 
-/* Form: fieldset menyusun anak satu arah (kolom); tiap kolom isian juga kolom */
 fieldset {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  min-width: 0; /* fieldset bawaan menolak menyusut di bawah lebar isinya */
+  min-width: 0; 
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-4);
@@ -110,8 +107,8 @@ label {
 }
 
 input:not([type="checkbox"]), textarea {
-  font: inherit; /* kolom isian ikut ukuran huruf halaman */
-  width: 100%; /* checkbox pengalih tema dikecualikan */
+  font: inherit;
+  width: 100%; 
   min-width: 0;
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-border);
@@ -126,7 +123,7 @@ input:not([type="checkbox"]), textarea {
 }
 
 button {
-  align-self: flex-start; /* tombol selebar isinya, tidak direntangkan */
+  align-self: flex-start; 
   font: inherit;
   padding: var(--space-2) var(--space-4);
   border: 1px solid transparent;
@@ -137,14 +134,24 @@ button {
 }
 button:hover { opacity: .9; }
 
-/* Keadaan fokus — wajib terlihat untuk pengguna papan ketik */
 :focus-visible {
   outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
-/* Isian tidak sah — hanya menyala SETELAH pengguna mengisi, bukan sejak awal */
 input:user-invalid, textarea:user-invalid {
   border-color: var(--color-danger);
   border-width: 2px;
 }
+
+#filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.aktif {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+

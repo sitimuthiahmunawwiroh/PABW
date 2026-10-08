@@ -1,8 +1,3 @@
-/* tema.css — Lembar H
-   Tema gelap: hanya lapis semantik yang ditukar. Tidak ada satu
-   baris pun JavaScript — pengalih memakai checkbox dan :has(). */
-
-/* 1. Mengikuti pengaturan sistem pengguna secara otomatis */
 @media (prefers-color-scheme: dark) {
     :root {
       --color-bg: #0F172A;
@@ -16,7 +11,7 @@
     }
   }
   
-  /* Tampilan tombol pengalih tema */
+
   .pengalih-tema-wadah {
     display: flex;
     align-items: center;
@@ -41,9 +36,7 @@
     outline: 2px solid var(--color-focus);
     outline-offset: 2px;
   }
-  
-  /* 2. Pilihan manual — HARUS di bawah blok media query supaya menang
-        saat pengguna ingin menimpa pengaturan sistemnya. */
+
   :root:has(#tema:checked) {
     --color-bg: #0F172A;
     --color-fg: #E2E8F0;
