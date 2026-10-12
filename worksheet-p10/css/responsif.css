@@ -1,0 +1,19 @@
+
+@media (min-width: 48rem) {
+    #karya ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 60rem) {
+    #karya ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .tabel-bungkus {
+    overflow-x: auto;
+  }
+  table {
+    min-width: 100%;
+  }
