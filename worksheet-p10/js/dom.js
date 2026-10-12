@@ -14,7 +14,7 @@ function buatKartu(proyek) {
   li.className = "kartu";
 
   const judul = document.createElement("strong");
-  judul.textContent = proyek.judul; 
+  judul.textContent = proyek.judul;
 
   const info = document.createElement("span");
   info.textContent = `${proyek.tahun} · ${proyek.kategori}`;
@@ -24,9 +24,9 @@ function buatKartu(proyek) {
 }
 
 function render(daftar) {
-  wadah.textContent = ""; 
+  wadah.textContent = "";
 
-  if (daftar.length === 0) { 
+  if (daftar.length === 0) {
     kosong.hidden = false;
     return;
   }
@@ -34,7 +34,7 @@ function render(daftar) {
 
   const bungkus = document.createDocumentFragment();
   daftar.forEach((proyek) => bungkus.append(buatKartu(proyek)));
-  wadah.append(bungkus); 
+  wadah.append(bungkus);
 }
 
 function tandaiTombolAktif(tombolAktif) {
@@ -45,7 +45,7 @@ function tandaiTombolAktif(tombolAktif) {
 
 barisFilter.addEventListener("click", (event) => {
   const tombol = event.target.closest("button");
-  if (!tombol) return; 
+  if (!tombol) return;
 
   const kategori = tombol.dataset.kategori;
   const terpilih = daftarProyek.filter(
@@ -95,7 +95,7 @@ function tampilkanGalat(kolom, pesan) {
 const semuaSah = () => kolomForm.every((kolom) => pesanGalat(kolom) === "");
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault(); 
+  event.preventDefault();
 
   let pertamaBermasalah = null;
   kolomForm.forEach((kolom) => {
@@ -106,8 +106,8 @@ form.addEventListener("submit", (event) => {
 
   if (pertamaBermasalah) {
     status.textContent = "";
-    pertamaBermasalah.focus(); 
-    return; 
+    pertamaBermasalah.focus();
+    return;
   }
 
   status.textContent = "Formulir sudah benar. Pengiriman ke server belum dibuat.";
@@ -118,18 +118,39 @@ form.addEventListener("submit", (event) => {
 
 form.addEventListener("input", (event) => {
   const kolom = event.target;
-  if (!kolomForm.includes(kolom)) return; 
+  if (!kolomForm.includes(kolom)) return;
   tampilkanGalat(kolom, pesanGalat(kolom));
   tombolKirim.disabled = !semuaSah();
 });
+
 const wadahNotisia = document.querySelector("#daftar-notisia");
+
+function gambar(daftar) {
+  wadahNotisia.textContent = ""; 
+  daftar.forEach((n) => {
+    const kartu = document.createElement("article");
+    kartu.className = "kartu";
+    const judul = document.createElement("h3");
+    const tanggal = document.createElement("small");
+    const ringkasan = document.createElement("p");
+    judul.textContent = n.judul;
+    tanggal.textContent = n.tanggal + (n.penting ? " · penting" : "");
+    ringkasan.textContent = n.ringkasan;
+    kartu.append(judul, tanggal, ringkasan);
+    wadahNotisia.appendChild(kartu);
+  });
+}
+window.gambar = gambar; 
 
 async function tampilkanNotisia() {
   wadahNotisia.textContent = "Memuat...";
   try {
-    const data = await ambilNotisia();
-    wadahNotisia.textContent = "Data diterima";
-    console.log(data);
+    const daftar = await ambilNotisia();
+    if (daftar.length === 0) {
+      wadahNotisia.textContent = "Belum ada notisia";
+      return;
+    }
+    gambar(daftar);
   } catch (galat) {
     wadahNotisia.textContent = "Gagal memuat data: " + galat.message;
   }
