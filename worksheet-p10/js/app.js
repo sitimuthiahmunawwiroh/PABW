@@ -1,4 +1,4 @@
-import "./api.js";
+export { ambilNotisia } from "./api.js";
 export const profil = {
   nama: "Siti Muthiah Munawwiroh Siregar",
   peran: "Mahasiswa Informatika yang sedang belajar membangun web",

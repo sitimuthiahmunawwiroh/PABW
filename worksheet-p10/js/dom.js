@@ -1,4 +1,4 @@
-import { daftarProyek } from "./app.js";
+import { daftarProyek, ambilNotisia } from "./app.js";
 
 const wadah = document.querySelector("#daftar");
 const barisFilter = document.querySelector("#filter");
@@ -122,3 +122,17 @@ form.addEventListener("input", (event) => {
   tampilkanGalat(kolom, pesanGalat(kolom));
   tombolKirim.disabled = !semuaSah();
 });
+const wadahNotisia = document.querySelector("#daftar-notisia");
+
+async function tampilkanNotisia() {
+  wadahNotisia.textContent = "Memuat...";
+  try {
+    const data = await ambilNotisia();
+    wadahNotisia.textContent = "Data diterima";
+    console.log(data);
+  } catch (galat) {
+    wadahNotisia.textContent = "Gagal memuat data: " + galat.message;
+  }
+}
+
+tampilkanNotisia();
