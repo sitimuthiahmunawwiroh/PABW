@@ -1,4 +1,4 @@
-const ALAMAT = "https://jsonplaceholder.typicode.com/todos?_limit=5";
+const ALAMAT = "notisia.json";
 
 export async function muat() {
   const respons = await fetch(ALAMAT);
