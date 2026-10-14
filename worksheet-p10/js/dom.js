@@ -151,6 +151,7 @@ async function tampilkanNotisia() {
       return;
     }
     gambar(daftar);
+    localStorage.setItem("notisia-terakhir", JSON.stringify(daftar));
   } catch (galat) {
     wadahNotisia.textContent = "Gagal memuat data: " + galat.message;
   }

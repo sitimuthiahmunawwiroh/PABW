@@ -76,7 +76,6 @@ main section {
       "sisi tanya";
   }
 
-  /* P10: kolom kiri berisi Keterampilan lalu Notisia */
   .sisi {
     grid-area: sisi;
     align-self: start;
