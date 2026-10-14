@@ -1,12 +1,10 @@
-import { state } from "./state.js";
+import { pilihKategori } from "./state.js";
 import {
   barisFilter,
   form,
   kolomForm,
   tombolKirim,
   status,
-  render,
-  tandaiTombolAktif,
   pesanGalat,
   tampilkanGalat,
   semuaSah,
@@ -17,13 +15,7 @@ export function pasangPendengar() {
     const tombol = event.target.closest("button");
     if (!tombol) return;
 
-    const kategori = tombol.dataset.kategori;
-    const terpilih = state.daftarProyek.filter(
-      (proyek) => kategori === "semua" || proyek.kategori === kategori
-    );
-
-    tandaiTombolAktif(tombol);
-    render(terpilih);
+    pilihKategori(tombol.dataset.kategori);
   });
 
   form.addEventListener("submit", (event) => {

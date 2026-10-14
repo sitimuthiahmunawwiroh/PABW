@@ -27,24 +27,33 @@ function buatKartu(proyek) {
   return li;
 }
 
-export function render(daftar) {
-  wadah.textContent = "";
+function tandaiTombolAktif(kategori) {
+  document.querySelectorAll("#filter button").forEach((tombol) => {
+    tombol.classList.toggle("aktif", tombol.dataset.kategori === kategori);
+  });
+}
 
-  if (daftar.length === 0) {
+function saring(state) {
+  return state.daftarProyek.filter(
+    (proyek) =>
+      state.kategoriAktif === "semua" || proyek.kategori === state.kategoriAktif
+  );
+}
+
+export function render(state) {
+  tandaiTombolAktif(state.kategoriAktif);   // tombol digambar dari state
+  wadah.textContent = "";                   // 1. kosongkan
+
+  const tampil = saring(state);             // dari state, bukan argumen
+  if (tampil.length === 0) {                // 2. keadaan kosong
     kosong.hidden = false;
     return;
   }
   kosong.hidden = true;
 
   const bungkus = document.createDocumentFragment();
-  daftar.forEach((proyek) => bungkus.append(buatKartu(proyek)));
+  tampil.forEach((proyek) => bungkus.append(buatKartu(proyek)));   // 3. isi ulang
   wadah.append(bungkus);
-}
-
-export function tandaiTombolAktif(tombolAktif) {
-  document.querySelectorAll("#filter button").forEach((tombol) => {
-    tombol.classList.toggle("aktif", tombol === tombolAktif);
-  });
 }
 
 export function pesanGalat(kolom) {
