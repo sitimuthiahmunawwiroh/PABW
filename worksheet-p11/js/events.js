@@ -1,9 +1,10 @@
-import { pilihKategori } from "./state.js";
+import { pilihKategori, aturUlangPilihan } from "./state.js";
 import {
   barisFilter,
   form,
   kolomForm,
   tombolKirim,
+  tombolAturUlang,
   status,
   pesanGalat,
   tampilkanGalat,
@@ -17,6 +18,8 @@ export function pasangPendengar() {
 
     pilihKategori(tombol.dataset.kategori);
   });
+
+  tombolAturUlang.addEventListener("click", aturUlangPilihan);
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();

@@ -12,6 +12,7 @@ const kolomPesan = document.querySelector("#pesan");
 export const tombolKirim = form.querySelector("button[type='submit']");
 export const status = document.querySelector("#status-form");
 export const kolomForm = [kolomNama, kolomEmail, kolomNim, kolomPesan];
+export const tombolAturUlang = document.querySelector("#atur-ulang");
 
 function buatKartu(proyek) {
   const li = document.createElement("li");
@@ -41,18 +42,18 @@ function saring(state) {
 }
 
 export function render(state) {
-  tandaiTombolAktif(state.kategoriAktif);   // tombol digambar dari state
-  wadah.textContent = "";                   // 1. kosongkan
+  tandaiTombolAktif(state.kategoriAktif);   
+  wadah.textContent = "";                   
 
-  const tampil = saring(state);             // dari state, bukan argumen
-  if (tampil.length === 0) {                // 2. keadaan kosong
+  const tampil = saring(state);             
+  if (tampil.length === 0) {               
     kosong.hidden = false;
     return;
   }
   kosong.hidden = true;
 
   const bungkus = document.createDocumentFragment();
-  tampil.forEach((proyek) => bungkus.append(buatKartu(proyek)));   // 3. isi ulang
+  tampil.forEach((proyek) => bungkus.append(buatKartu(proyek)));  
   wadah.append(bungkus);
 }
 
