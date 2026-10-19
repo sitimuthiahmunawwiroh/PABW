@@ -1,6 +1,7 @@
 <script setup>
 import KepalaProfil from './components/KepalaProfil.vue'
 import TombolFilter from './components/TombolFilter.vue'
+import DaftarProyek from './components/DaftarProyek.vue'
 import { profil } from './data.js'
 
 const identitas = profil
@@ -13,6 +14,7 @@ const identitas = profil
     <section id="karya">
       <h2>Karya saya</h2>
       <TombolFilter />
+      <DaftarProyek />
     </section>
   </main>
 </template>

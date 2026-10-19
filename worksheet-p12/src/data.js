@@ -5,9 +5,9 @@ export const profil = {
   };
   
   export const daftarProyek = [
-    { judul: "Halaman Kelas Terbuka Kampus", tahun: 2026, selesai: true, kategori: "web" },
-    { judul: "Aplikasi Sortify", tahun: 2024, selesai: true, kategori: "aplikasi" },
-    { judul: "Posture Care", tahun: 2025, selesai: true, kategori: "aplikasi" },
+    { id: 1, judul: "Halaman Kelas Terbuka Kampus", tahun: 2026, selesai: true, kategori: "web" },
+    { id: 2, judul: "Aplikasi Sortify", tahun: 2024, selesai: true, kategori: "aplikasi" },
+    { id: 3, judul: "Posture Care", tahun: 2025, selesai: true, kategori: "aplikasi" },
   ];
   
   export function buatPerkenalan({ nama, peran }) {
