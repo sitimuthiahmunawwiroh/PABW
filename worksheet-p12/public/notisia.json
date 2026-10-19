@@ -1,0 +1,9 @@
+{
+    "sumber": "Notisia Kampus (berkas lokal)",
+    "diperbarui": "2026-10-12",
+    "butir": [
+      { "id": 1, "judul": "Pendaftaran praktikum dibuka", "ringkasan": "Pendaftaran praktikum semester gasal dibuka sampai akhir pekan.", "tanggal": "2026-10-10", "penting": true },
+      { "id": 2, "judul": "Jadwal ujian CPMK Blok 2", "ringkasan": "Ujian dilaksanakan pada Pertemuan 13 di laboratorium.", "tanggal": "2026-10-11", "penting": true },
+      { "id": 3, "judul": "Perpustakaan perpanjang jam layanan", "ringkasan": "Layanan ruang baca diperpanjang sampai pukul 20.00.", "tanggal": "2026-10-12", "penting": null }
+    ]
+  }
