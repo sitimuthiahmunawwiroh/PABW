@@ -1,5 +1,6 @@
 <script setup>
 import KepalaProfil from './components/KepalaProfil.vue'
+import TombolFilter from './components/TombolFilter.vue'
 import { profil } from './data.js'
 
 const identitas = profil
@@ -7,7 +8,13 @@ const identitas = profil
 
 <template>
   <KepalaProfil :profil="identitas" />
-  <p>Bagian lain halaman dipindahkan di langkah berikutnya.</p>
+
+  <main id="utama">
+    <section id="karya">
+      <h2>Karya saya</h2>
+      <TombolFilter />
+    </section>
+  </main>
 </template>
 
 <style>
