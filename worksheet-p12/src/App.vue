@@ -1,4 +1,15 @@
+<script setup>
+import KepalaProfil from './components/KepalaProfil.vue'
+import { profil } from './data.js'
+
+const identitas = profil
+</script>
+
 <template>
-  <h1>Halaman Anda</h1>
-  <p>-</p>
+  <KepalaProfil :profil="identitas" />
+  <p>Bagian lain halaman dipindahkan di langkah berikutnya.</p>
 </template>
+
+<style>
+#app { display: contents; }
+</style>
