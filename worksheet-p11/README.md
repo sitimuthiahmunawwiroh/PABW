@@ -174,3 +174,22 @@ Saya kerjakan sendiri:
 - membuat `notisia.json` dan `api.js`
 - mengerjakan perintah pada worksheet serta mengisi worksheet.
 - memperbaiki beberapa kode di `profil`
+
+
+## Pertemuan 11: Modul, State, dan Penyimpanan Klien
+
+### Deklarasi AI
+
+**Dibantu AI:**
+- Kode pemecahan berkas menjadi `js/data.js`, `js/state.js`, `js/dom.js`, `js/events.js`, dan `js/app.js`, disusun dari `app.js` dan `dom.js` Pertemuan 9 yang saya berikan.
+
+**Saya kerjakan sendiri:**
+- Rancangan isian worksheet
+- Halaman `profil.html`, CSS, data proyek, dan fungsi `dom.js` asli 
+- Mengerjakan perintah pada`worksheet`, menempelkan dan menjalankan kode di peramban, dan memeriksa Console serta Local Storage.
+- Memasang Node.js LTS dan menjalankan `node -v` dan `npm -v`.
+- Kode `js/simpan.js` (localStorage, JSON, nilai bawaan, nomor versi, penanganan simpanan rusak) dan tombol atur ulang
+
+### Versi Node.js
+- node -v = v24.22.0
+- npm -v = 11.19.1
